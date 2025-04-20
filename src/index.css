@@ -56,6 +56,16 @@ a {
     overflow: visible;
 }
 
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
 .button{
     background-color: var(--dark-button);
     border-radius: 1rem;
@@ -69,6 +79,7 @@ a {
 }
 
 .navbar-section{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -128,6 +139,9 @@ a {
 
 .footer-section {
     margin-top: 10rem;
+    margin-bottom: 0;
+    position: relative;
+    bottom: 0;
     background-color: var(--dark-orange-color);
 
     .footer-container {
@@ -359,5 +373,92 @@ a {
        & .item-card:hover{
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
        }
+    }
+}
+
+.cart-section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & h2{
+        text-align: center;
+        font-size: 3.6rem;
+
+        & span{
+            color: var(--dark-orange-color);
+        }
+    }
+
+    & .cart-items{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        & .cart-item {
+            width: 100%;
+            height: 10rem;
+            border-radius: 2rem;
+            background-color: whitesmoke;
+
+            padding: 2rem;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            align-items: center;
+            gap: 1rem;
+
+            & img{
+                height:7rem;
+                border-radius: 50%;
+            }
+
+            
+            & .content{
+                background-color: transparent;
+
+                & h3, span, p{
+                    background-color: transparent;
+                }
+
+                & span{
+                    color: var(--dark-orange-color);
+                }
+
+            }
+
+            & p{
+                background-color: transparent;
+
+                & span{
+                    background-color: inherit;
+                    color: var(--dark-orange-color);
+                }
+            }
+        }
+    }
+
+    & .cart-summary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        height: 5rem;
+        width: auto;
+
+        background-color: whitesmoke;
+        padding: 3rem;
+        border-radius: 1rem;
+        margin: auto;
+
+        & h3{
+            font-size: 2rem;
+            background-color: transparent;
+
+            & span{
+                color: var(--dark-orange-color);
+            }
+        }
     }
 }
