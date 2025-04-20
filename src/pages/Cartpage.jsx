@@ -4,14 +4,12 @@ import CartItem from '../components/UI/CartItem';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useOrders } from '../context/OrdersContext';
 
 const Cartpage = () => {
     const navigate = useNavigate();
 
     const { cart, dispatch } = useCart()
     const { user } = useAuth();
-    const { dispatch: orderDispatch } = useOrders();
     const total = cart.reduce((acc, item) => acc + item.price, 0);
 
     const handleCheckout = async () => {
@@ -29,10 +27,8 @@ const Cartpage = () => {
                 },
             });
 
-            const newOrder = response.data.data;
             alert('Order placed successfully!');
 
-            orderDispatch({ type: 'ADD_ORDER', payload: newOrder });
             dispatch({ type: 'CLEAR_CART' });
 
             setTimeout(() => {

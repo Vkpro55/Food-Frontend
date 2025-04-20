@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import axios from 'axios';
 import ItemCard from './ItemCard';
@@ -7,14 +7,24 @@ const MainSection = () => {
     const [selectedCategory, setSelectedCategory] = useState('Appetizers');
     const [items, setItems] = useState([]);
 
-    const fetchMenuItems = async () => {
+    const fetchMenuItems = async (category = selectedCategory) => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/menu?category=${selectedCategory}`);
+            const response = await axios.get(`http://localhost:3000/api/v1/menu?category=${category}`);
             console.log(response);
             setItems(response.data.data);
         } catch (error) {
             console.error('Error fetching menu items:', error);
         }
+    };
+
+    useEffect(() => {
+        fetchMenuItems();
+    }, []);
+
+    const handleCategorySelect = (e, cat) => {
+        e.preventDefault();
+        setSelectedCategory(cat);
+        fetchMenuItems(cat);
     };
 
     return (
@@ -26,30 +36,27 @@ const MainSection = () => {
                         <ul className="dropdown">
                             {['Appetizers', 'Mains', 'Desserts', 'Drinks'].map((cat) => (
                                 <li key={cat}>
-                                    <a href="#" onClick={(e) => {
-                                        e.preventDefault();
-                                        setSelectedCategory(cat);
-                                    }}>{cat}</a>
+                                    <a href="#" onClick={(e) => handleCategorySelect(e, cat)}>
+                                        {cat}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
                     </li>
                 </ul>
-
-                <button className='button' onClick={fetchMenuItems}>Search</button>
             </div>
 
             <div className='display-items'>
                 {items.length === 0 ? (
-                    <span></span>
+                    <span>No items found.</span>
                 ) : (
                     items.map((item, index) => (
                         <ItemCard key={index} item={item} />
                     ))
                 )}
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
-export default MainSection
+export default MainSection;
