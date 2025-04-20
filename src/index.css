@@ -462,3 +462,58 @@ a {
         }
     }
 }
+
+.user-section{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    & .singup-section{
+        width: 40rem;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    & .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & h2 {
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        & label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        & input {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        & input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        & p{
+            text-align: center;
+            & li {
+                display: inline-block;
+                color: var(--dark-orange-color);
+            }
+        }
+    }
+}
