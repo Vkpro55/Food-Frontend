@@ -5,7 +5,6 @@ import { useAuth } from '../../context/AuthContext';
 const ItemCard = ({ item }) => {
 
     const { user } = useAuth();
-    console.log(user);
 
     const { name, imageURL, category, price, rating } = item;
     const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;

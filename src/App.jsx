@@ -13,6 +13,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements
 } from 'react-router-dom';
+import MyOrder from './pages/MyOrder';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         <Route element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path='cart' element={<Cartpage />} />
+          <Route path='my-order' element={<MyOrder />} />
         </Route>
       </Route>
     </>

@@ -48,7 +48,9 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <Button title="Food & Delivery" />
+                <button className='button' onClick={() => {
+                    navigate('/my-order');
+                }}>My Orders</button>
             </div>
         </div>
     );
