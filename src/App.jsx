@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from './pages/Home'
 
 import {
   Route,
@@ -11,6 +12,7 @@ import RootLayout from './components/Layouts/RootLayout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
+      <Route index element={<Home />} />
     </Route>
   )
 );
