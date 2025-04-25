@@ -9,7 +9,8 @@ const MainSection = () => {
 
     const fetchMenuItems = async (category = selectedCategory) => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/menu?category=${category}`);
+            const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
+            const response = await axios.get(`${backendURL}/api/v1/menu?category=${category}`);
             console.log(response);
             setItems(response.data.data);
         } catch (error) {

@@ -24,8 +24,6 @@ const Singup = () => {
 
         try {
             const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
-            console.log(`${backendURL}/api/v1/user/signup`);
-
             const res = await axios.post(`${backendURL}/api/v1/user/signup`, formData);
             if (res.status === 201 || res.status === 200) {
                 setSuccessMsg('Signup successful! Redirecting to login...');
