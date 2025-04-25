@@ -4,7 +4,7 @@ A full-stack MERN + PostgreSQL application allowing customers to browse the rest
 
 ## Live Demo
 
-**Frontend (Netlify):** [Live Frontend Deployed on Netlify](https://6805c22b94fa972d90daa813--fitemefood.netlify.app/)
+**Frontend (Netlify):** [Live Frontend Deployed on Netlify](https://fitemefood.netlify.app/)
 
 **Backend (Render):**
 [Live Backend Deployed on Render](https://food-backend-3mjr.onrender.com)
